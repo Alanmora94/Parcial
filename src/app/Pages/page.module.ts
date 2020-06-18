@@ -39,6 +39,8 @@ import { EstablecimientoComponent } from './establecimiento/establecimiento.comp
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { GrillaAvanzadaComponent } from './grilla-avanzada/grilla-avanzada.component';
+import { LocalComponent } from './local/local.component';
+import { ProductoComponent } from './producto/producto.component';
 
 
 
@@ -49,7 +51,7 @@ import { GrillaAvanzadaComponent } from './grilla-avanzada/grilla-avanzada.compo
 
 
 @NgModule({
-  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent, VehiculoComponent, DetalleComponent, GrillaAvanzadaComponent],
+  declarations: [MenuComponent, LogUpComponent, LogInComponent, HomeComponent, EstablecimientoComponent, VehiculoComponent, DetalleComponent, GrillaAvanzadaComponent, LocalComponent, ProductoComponent],
   imports: [
     CommonModule,
 

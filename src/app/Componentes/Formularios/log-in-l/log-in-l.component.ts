@@ -59,7 +59,7 @@ export class LogInLComponent implements OnInit {
 
     if(this.formulario.valid){
 
-     this.sesion.IniciarSesion(new Usuario(this._email,this._pass), this._elegido);
+     this.sesion.IniciarSesion(new Usuario(this._email,this._pass));
     }
 
 

@@ -20,17 +20,19 @@
   <hr>
 
 
-  <app-establecimientos-button [Lista]="this._establecimientos" (Elegido)="recibir($event)" *ngIf="this.formulario.valid">
+  <!-- <app-establecimientos-button [Lista]="this._establecimientos" (Elegido)="recibir($event)" *ngIf="this.formulario.valid">
 
 
   </app-establecimientos-button>
+-->
+
   <hr>
 
 
 
   <div class="example-button-row">
 
-    <ng-container *ngIf="formulario.valid && this._elegido != null; else elseTemplate">
+    <ng-container *ngIf="formulario.valid; else elseTemplate">
       <button type="button" (click)="this.IniciarS()" mat-raised-button color="warn">Login</button>
     </ng-container>
     <ng-template #elseTemplate>

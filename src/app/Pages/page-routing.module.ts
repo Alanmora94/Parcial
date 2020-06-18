@@ -17,6 +17,18 @@ import {VehiculoComponent} from '../Pages/vehiculo/vehiculo.component';
 import {GrillaAvanzadaComponent} from '../Pages/grilla-avanzada/grilla-avanzada.component'
 
 
+
+
+//**************************************************************
+
+
+
+import {LocalComponent} from '../Pages/local/local.component';
+
+
+import {ProductoComponent} from '../Pages/producto/producto.component';
+
+
 //**************GUARDS */
 
 import {AutenticacionGuard} from '../Guards/autenticacion.guard';
@@ -29,18 +41,17 @@ const routes: Routes = [
   children: [
     {path: "LogIn",
      component: LogInComponent},
-     {path: "Detalle",
-     component: DetalleComponent},
      {path: "LogUp",
      component: LogUpComponent},
      {path: "Grilla",
-     component: GrillaAvanzadaComponent},
-     {path: "Establecimiento",
-     component: EstablecimientoComponent},
-     {path: "Vehiculo",
-     component: VehiculoComponent,
+     component: GrillaAvanzadaComponent,
      canActivate: [AutenticacionGuard]},
-
+     {path: "Local",
+     component: LocalComponent,
+     canActivate: [AutenticacionGuard]},
+     {path: "Producto",
+     component: ProductoComponent,
+     canActivate: [AutenticacionGuard]},
      {path: "Home",
      component: HomeComponent,
      canActivate: [AutenticacionGuard]}

@@ -8,9 +8,20 @@ import { Establecimiento } from '../Modelos/establecimiento';
 
 import {Cadena} from '../Modelos/cadena';
 
+
+
+
+import {ProductoI} from '../Modelos/producto-i';
+import {LocalI} from '../Modelos/local-i';
+
+
+
+
+
 //*******************SERVICIOS */
 
 import	{DBService} from '../Servicios/db.service'
+import { Local } from 'protractor/built/driverProviders';
 
 
 @Injectable({
@@ -24,6 +35,21 @@ export class CookiesService {
   public _establecimientoActual : Establecimiento;
 
   _establecimientoNombre : string ="";
+
+
+
+
+
+  //public _listaLocal : Array<LocalI> = []
+
+  public _localActual : LocalI;
+
+  //_establecimientoNombre : string ="";
+
+
+
+
+
 
   constructor() {
 
@@ -167,6 +193,45 @@ ObtenerCadenaElegida(){
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//******************************************************************************************************************************** */
+
+
+
+GetObjetcLocal(){
+
+  this._localActual = JSON.parse(localStorage.getItem("local"));
+
+  return this._localActual;
+
+
+}
+
+
+
+GuardarLocal(obj: LocalI){
+
+  this._localActual = obj;
+
+  localStorage.setItem("LocalName", JSON.stringify(obj.nombre));
+
+  localStorage.setItem("local", JSON.stringify(obj));
+
+}
+
+
 
 
 

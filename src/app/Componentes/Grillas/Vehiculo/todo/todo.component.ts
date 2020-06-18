@@ -25,7 +25,7 @@ import {BotonDetalleComponent} from '../Validadores/boton-detalle/boton-detalle.
 
 //*******************CLASE */
 
-import {Cadena} from '../../../../Modelos/cadena'
+import {ProductoI} from '../../../../Modelos/producto-i'
 
 
 //*****************SERVICIOS */
@@ -42,7 +42,7 @@ export class TodoComponent implements OnInit {
 
   //_pacienteEditado : Paciente;
 
-  _cadena: Array<Cadena>;
+  _cadena: Array<ProductoI>;
 
   //result;
 
@@ -50,7 +50,7 @@ export class TodoComponent implements OnInit {
 
 
   @Input()
-  public set Paciente (obj : Array<Cadena>){
+  public set Paciente (obj : Array<ProductoI>){
 
     this._cadena = obj;
 
@@ -68,7 +68,7 @@ export class TodoComponent implements OnInit {
   constructor(private base: DBService, public cookies: CookiesService) {
 
 
-    this.base.GetCadena().subscribe(datos =>{
+    this.base.GetProducto().subscribe(datos =>{
       this._cadena = datos;
 
     });
@@ -94,7 +94,22 @@ export class TodoComponent implements OnInit {
   }
 
 
+/*
 
+  id?: string;
+  nombre?: string;
+  marca?: string;
+  stock?: number;
+  precio?: number;
+  tipo?: string;
+
+  idLocal?: string;
+  nombreLocal?: string;
+  emailLocal?: string;
+  telefonoLocal?: number;
+  localidadLocal?: string;
+
+*/
 
 
   settings = {
@@ -124,8 +139,8 @@ export class TodoComponent implements OnInit {
         renderComponent: DatoCargadoComponent
 
       },
-      modelo: {
-        title: 'modelo',
+      nombre: {
+        title: 'nombre',
         editor: {
           type: 'custom',
           component: ModeloComponent
@@ -137,26 +152,50 @@ export class TodoComponent implements OnInit {
         title: 'tipo',
         type: 'custom',
         update: false,
-        renderComponent: TipoComponent
+        renderComponent: DatoCargadoComponent
       }
       ,
-      imagen: {
-        title: 'Imagen',
-        filter: false,
-        sort: false,
-        editor: {
-          type: 'custom',
-          component: ImgEditorComponent
-        },
+
+      stock: {
+        title: 'stock',
         type: 'custom',
-        renderComponent: ImagenComponent
+        update: false,
+        renderComponent: DatoCargadoComponent
       },
-      id: {
-        title: 'Detalle',
+
+      precio: {
+        title: 'Precio',
+        type: 'custom',
+        update: false,
+        renderComponent: DatoCargadoComponent
+      },
+
+      nombreLocal: {
+        title: 'Local',
+        type: 'custom',
+        update: false,
+        renderComponent: DatoCargadoComponent
+      },
+
+      emailLocal: {
+        title: 'Mail',
+        type: 'custom',
+        update: false,
+        renderComponent: DatoCargadoComponent
+      },
+      telefonoLocal: {
+        title: 'Telefono',
         type: 'custom',
         filter: false,
         //update: false,
-        renderComponent: BotonDetalleComponent
+        renderComponent: DatoCargadoComponent
+      },
+      localidadLocal: {
+        title: 'Localidad',
+        type: 'custom',
+        filter: false,
+        //update: false,
+        renderComponent: DatoCargadoComponent
       }
     }
   };

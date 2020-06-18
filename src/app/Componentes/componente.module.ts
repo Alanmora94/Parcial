@@ -91,6 +91,9 @@ import { EstablecimientosButtonComponent } from './Basicos/Botones/establecimien
 import { DetAComponent } from './Detalle/det-a/det-a.component';
 import { BotonDetalleComponent } from './Grillas/Vehiculo/Validadores/boton-detalle/boton-detalle.component';
 import { imagenCon } from './Pipes/convertir-aimagen.pipe';
+import { LocalesComponent } from './Formularios/locales/locales.component';
+import { ProductoComponent } from './Formularios/producto/producto.component';
+import { LocalBotonComponent } from './Basicos/Botones/local-boton/local-boton.component';
 
 
 
@@ -102,7 +105,10 @@ import { imagenCon } from './Pipes/convertir-aimagen.pipe';
    EstablecimientosButtonComponent,
    DetAComponent,
    BotonDetalleComponent,
-   imagenCon],
+   imagenCon,
+   LocalesComponent,
+   ProductoComponent,
+   LocalBotonComponent],
   imports: [
     CommonModule,
     ComponenteRoutingModule,
@@ -149,7 +155,7 @@ import { imagenCon } from './Pipes/convertir-aimagen.pipe';
 
   providers: [SesionService,TokService,SesionService,TokService,CookiesService,DBService,FiltrosService,GenerarListaService,GenerarObjDetalleService],
 
-  exports: [DetAComponent, MapaComponent,CodigoQRComponent,ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
+  exports: [ProductoComponent,LocalesComponent,DetAComponent, MapaComponent,CodigoQRComponent,ExportComponent,LogInLComponent, LogUpLComponent, BotonLogOutComponent,
     EstablecimientoLComponent, AltaVehiculoComponent,  EstablecimientoActualComponent, TodoComponent,
      AnioComponent, MarcaComponent, ModeloComponent, TipoComponent, ImagenComponent, KilometrosComponent, DatoCargadoComponent, ImgEditorComponent]
 })

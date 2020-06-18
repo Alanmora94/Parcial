@@ -1,0 +1,78 @@
+<form [formGroup]="formulario" (submit)="Registrar()">
+  <h2>Alta de Productos</h2>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Marca" formControlName="marca" required [(ngModel)]="_marca">
+    <mat-error>
+      Proporcione una Marca
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Nombre" formControlName="nombre" required [(ngModel)]="_nombre">
+    <mat-error>
+      Proporcione un Nombre
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="number" placeholder="Precio" step="3" formControlName="precio" required [(ngModel)]="_precio">
+    <mat-error>
+      Proporcione un precio
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="number" placeholder="Stock"  formControlName="stock" required [(ngModel)]="_stock">
+    <mat-error>
+      Proporcione un stock
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <mat-form-field>
+    <mat-label>Eliga una opcion</mat-label>
+    <mat-select [(value)]="_tipo" formControlName="tipo" required>
+      <mat-option value="Limpieza">Limpieza</mat-option>
+      <mat-option value="Electro">Electro</mat-option>
+      <mat-option value="Sport">Sport</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <hr>
+
+
+
+
+<app-local-boton [Lista]="this._Locales"  *ngIf="this.formulario.valid">
+
+
+</app-local-boton>
+
+
+
+  <hr>
+
+
+
+
+
+
+
+  <ng-container *ngIf="formulario.valid; else elseTemplate">
+    <button type="submit" mat-raised-button color="primary">Registrar</button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button type="submit" mat-raised-button color="primary" disabled>Registrar</button>
+  </ng-template>
+
+
+    <button type="button" (click)="cargarDatos()" mat-raised-button color="primary">Cargar</button>
+
+
+
+
+</form>
+

@@ -88,7 +88,7 @@ export class SesionService {
 
 /************************************** INICIAR SESION ********************************* */
 
-  IniciarSesion(obj: Usuario, establecimiento: Establecimiento){
+  IniciarSesion(obj: Usuario){
 
 
   try {
@@ -99,7 +99,7 @@ export class SesionService {
 
           this.UserName = data.user.displayName;
           this.GuardaruserName(this.UserName);
-          this.cookies.GuardarEstablecimiento(establecimiento);
+          //this.cookies.GuardarEstablecimiento(establecimiento);
 
       data.user.getIdToken().then(token=>{
           this.token.GuardarToken(token);

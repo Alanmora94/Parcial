@@ -15,6 +15,16 @@ import { Vehiculo } from '../Modelos/vehiculo';
 import {Cadena} from '../Modelos/cadena'
 
 
+//****************************************************-------------------------
+
+import {ProductoI} from '../Modelos/producto-i';
+import {LocalI} from '../Modelos/local-i';
+
+
+
+
+
+
 import {CookiesService} from '../Servicios/cookies.service'
 
 
@@ -54,6 +64,32 @@ export class DBService {
   CadenaDoc: AngularFirestoreDocument<Cadena>;
 
 
+
+
+
+
+
+
+  //////////////// LOCAL
+
+  LocalCollection: AngularFirestoreCollection<LocalI>;
+  Local: Observable<LocalI[]>;
+  LocalDoc: AngularFirestoreDocument<LocalI>;
+
+
+  //////////////// PRODUCTO
+
+  ProductoCollection: AngularFirestoreCollection<ProductoI>;
+  Producto: Observable<ProductoI[]>;
+  ProductoDoc: AngularFirestoreDocument<ProductoI>;
+
+
+
+
+
+
+
+
   //******************VARIABLE PARA SUBIR IMAGEN */
 
   private filepath: any;
@@ -64,7 +100,10 @@ export class DBService {
   cadenaString = '/preparcial/ZOwvS0XEdJNOrkM3KDcC/cadena';
 
 
+ //************************************************** */
 
+ localString = '/parcial/XVXDBHKdXbqxelFqXsQg/local';
+ productoString = '/parcial/XVXDBHKdXbqxelFqXsQg/producto';
 
 
   constructor(private db: AngularFirestore, private storage: AngularFireStorage, private cookies: CookiesService) {
@@ -72,6 +111,15 @@ export class DBService {
     this.EstablecimientoCollection = this.db.collection(this.establecimientoString);
     this.AutoCollection = this.db.collection(this.vehiculosString);
     this.CadenaCollection = this.db.collection(this.cadenaString);
+
+
+    //*************************************************** */
+
+
+    this.LocalCollection = this.db.collection(this.localString);
+
+    this.ProductoCollection = this.db.collection(this.productoString);
+
 
   }
 
@@ -273,6 +321,123 @@ AltaCadena(obj: Ivehiculo){
 
 
 
+
+
+
+
+///////////////////////////////****LOCAL */
+
+
+
+
+GetLocal(){
+
+  this.Local = this.LocalCollection.snapshotChanges().pipe(map(actions => {
+    return actions.map(a => {
+      const data = a.payload.doc.data() as LocalI;
+      data.id = a.payload.doc.id;
+       return data;
+    });
+  }));
+
+
+  return this.Local;
+
+}
+
+
+
+
+
+
+
+
+
+
+AltaLocal(obj: LocalI){
+
+
+  //let pad = this.cookies.GetObjetcEstablecimiento();
+
+
+  //console.log(pad);
+
+  let auxi :LocalI = {
+
+    nombre: obj.nombre,
+    email: obj.email,
+    telefono: obj.telefono,
+    localidad: obj.localidad
+  }
+
+  this.LocalCollection.add(auxi);
+
+
+}
+
+
+
+
+
+
+///////////////////////////////****PRODUCTO */
+
+
+
+
+GetProducto(){
+
+  this.Producto = this.ProductoCollection.snapshotChanges().pipe(map(actions => {
+    return actions.map(a => {
+      const data = a.payload.doc.data() as ProductoI;
+      data.id = a.payload.doc.id;
+       return data;
+    });
+  }));
+
+
+  return this.Producto;
+
+}
+
+
+
+
+
+
+
+
+
+
+AltaProducto(obj: ProductoI){
+
+
+  let pad = this.cookies.GetObjetcLocal();
+
+
+  console.log(pad);
+
+  let auxi :ProductoI = {
+
+    idLocal: pad.id,
+    nombreLocal: pad.nombre,
+    localidadLocal: pad.localidad,
+    telefonoLocal: pad.telefono,
+
+
+
+    nombre: obj.nombre,
+    marca: obj.marca,
+    stock: obj.stock,
+    precio: obj.precio,
+    tipo: obj.tipo
+
+  }
+
+  this.ProductoCollection.add(auxi);
+
+
+}
 
 
 

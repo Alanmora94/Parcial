@@ -1,0 +1,73 @@
+<form [formGroup]="formulario" (submit)="Registrar()">
+  <h2>Alta de Vehiculos</h2>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Marca" formControlName="marca" required [(ngModel)]="_marca">
+    <mat-error>
+      Proporcione una Razon Social
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Modelo" formControlName="modelo" required [(ngModel)]="_modelo">
+    <mat-error>
+      Proporcione una Razon Social
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="number" placeholder="Kilometros" step="1000" formControlName="kilometro" required [(ngModel)]="_kilometro">
+    <mat-error>
+      Proporcione una direccion valida
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="number" placeholder="Año" step="10" min="1940" max="2020" formControlName="anio" required [(ngModel)]="_anio">
+    <mat-error>
+      Proporcione un telefono valido
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <mat-form-field>
+    <mat-label>Eliga una opcion</mat-label>
+    <mat-select [(value)]="_tipo" formControlName="tipo" required>
+      <mat-option value="Auto">Auto</mat-option>
+      <mat-option value="Camioneta">Camioneta</mat-option>
+      <mat-option value="Camion">Camion</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <hr>
+
+  <div class="container-input-file">
+    <label class="custom-file">
+
+      <input style="display: none;" type="file" formControlName="imagen" required (change)="handleImage($event)"/>
+      <mat-icon>cloud_upload</mat-icon><span>Elegir Imagen</span>
+
+    </label>
+
+  </div>
+
+  <hr>
+
+
+  <ng-container *ngIf="formulario.valid; else elseTemplate">
+    <button type="submit" mat-raised-button color="primary">Registrar</button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button type="submit" mat-raised-button color="primary" disabled>Registrar</button>
+  </ng-template>
+
+
+    <button type="button" (click)="cargarDatos()" mat-raised-button color="primary">Cargar</button>
+
+
+
+
+</form>
+

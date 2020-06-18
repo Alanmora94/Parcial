@@ -1,0 +1,61 @@
+<form [formGroup]="formulario" (submit)="Registrar()">
+  <h2>Alta de Establecimiento</h2>
+
+  <mat-form-field class="full-width-input">
+    <input matInput placeholder="Email" formControlName="email" required [(ngModel)]="_email">
+    <mat-error>
+      Proporcione un Email Valido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Razon Social" formControlName="razon" required [(ngModel)]="_razon">
+    <mat-error>
+      Proporcione una Razon Social
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Direccion" formControlName="direccion" required [(ngModel)]="_direccion">
+    <mat-error>
+      Proporcione una direccion valida
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="number" placeholder="Telefono" formControlName="telefono" required [(ngModel)]="_telefono">
+    <mat-error>
+      Proporcione un telefono valido
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="password" placeholder="Password" formControlName="pass" required [(ngModel)]="_pass">
+    <mat-error>
+      Proporcione una password Valida
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <ng-container *ngIf="formulario.valid; else elseTemplate">
+    <button type="submit" mat-raised-button color="primary">Registrar</button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button type="submit" mat-raised-button color="primary" disabled>Registrar</button>
+  </ng-template>
+
+
+    <button type="button" (click)="cargarDatos()" mat-raised-button color="primary">Cargar</button>
+
+
+
+
+</form>
+
+
+<!--
+<button type="button" (click)="prueba()" mat-raised-button color="primary">Prueba</button>
+-->

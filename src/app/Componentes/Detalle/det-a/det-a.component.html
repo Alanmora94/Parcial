@@ -1,0 +1,38 @@
+<div *ngIf="_objetoDetalle != null" >
+
+
+
+
+
+
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title><h2>Detalle</h2></mat-card-title>
+      <mat-card-subtitle><h3>Vehiculo</h3></mat-card-subtitle>
+
+    </mat-card-header>
+    <app-codigo-qr [Codigo]="this.EnviarQR()"></app-codigo-qr>
+    <img mat-card-image [src]="this._objetoDetalle.img" alt="Photo of a Shiba Inu">
+
+    <mat-card-content>
+
+      <p *ngFor="let obj of this._cabecera; index as i">{{this._cabecera[i]}}:  {{this._objetoDetalle['i' + (i + 1).toString()]}}</p>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-raised-button routerLink="/Home" >Volver</a>
+    </mat-card-actions>
+
+
+
+
+</div>
+
+
+<!--
+*ngFor="let obj of this._cabecera
+{{obj}}</b> {{this._objetoDetalle['i' + i]}}
+
+-->

@@ -1,0 +1,59 @@
+.carousel-item{
+  height: 300px;
+  width: auto;
+}
+.carousel-item img{
+  height: 300px;
+  width: auto;
+}
+
+img{
+
+
+  width: 250px;
+  height: auto;
+
+}
+
+.logo{
+
+  height: 70px;
+  width: auto;
+  margin: 10px;
+}
+
+.scru {
+  height: 100px;
+  width: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.scruP {
+  height: 150px;
+  width: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+
+
+.Detalle{
+
+  padding: 0px;
+  margin-top: 3%;
+  margin-right: 8%;
+  margin-left: 8%;
+  border-left: 5px solid #e49d05;
+  border-right: 5px solid #e49d05;
+  border-radius: 40px;
+
+}
+
+
+.src{
+
+  width: 400px;
+  height: auto;
+}

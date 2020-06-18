@@ -1,0 +1,35 @@
+<form [formGroup]="formulario" (submit)="Registrar()">
+  <h2>Log Up</h2>
+
+  <mat-form-field class="full-width-input">
+    <input matInput placeholder="Email" formControlName="email" required [(ngModel)]="_email">
+    <mat-error>
+      Proporcione un Email Valido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" placeholder="Nombre" formControlName="nombre" required [(ngModel)]="_nombre">
+    <mat-error>
+      Proporcione un nombre valido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width-input">
+    <input matInput type="password" placeholder="Password" formControlName="pass" required [(ngModel)]="_pass">
+    <mat-error>
+      Proporcione una password Valida
+    </mat-error>
+  </mat-form-field>
+
+
+  <hr>
+
+  <ng-container *ngIf="formulario.valid; else elseTemplate">
+    <button type="submit" mat-raised-button color="primary">LogUp</button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button type="submit" mat-raised-button color="primary" disabled>LogUp</button>
+  </ng-template>
+
+</form>

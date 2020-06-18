@@ -1,0 +1,9 @@
+
+
+
+<div class="example-button-row" *ngIf="this._lista != null">
+
+  <button mat-raised-button color="primary" *ngFor="let obj of _lista" (click)="boton(obj)">{{obj.razon}}</button>
+
+
+</div>

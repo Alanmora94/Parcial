@@ -1,0 +1,16 @@
+
+<mat-form-field class="example-full-width">
+  <mat-label>Marca</mat-label>
+  <input matInput [formControl]="marca" [errorStateMatcher]="matcher" (change)="escribiendo()">
+
+
+  <mat-error *ngIf="marca.hasError('required')">
+    El Marca es <strong>Requerido</strong>
+  </mat-error>
+
+  <mat-error *ngIf="marca.hasError('minLength')">
+    El Marca debe tener <strong>3 letras minimo</strong>
+  </mat-error>
+
+
+</mat-form-field>

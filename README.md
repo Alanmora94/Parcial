@@ -1,6 +1,6 @@
 # Parcial
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Esta Hecho en base a un Modelo, por lo que van a existir componenetes y clases que no se usan
 
 ## Development server
 
